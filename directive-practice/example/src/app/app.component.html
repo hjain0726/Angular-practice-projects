@@ -1,0 +1,24 @@
+<div>
+  <div>
+    <div>
+      <button (click)="onlyOdd=!onlyOdd">Only Show Odd numbers</button>
+      <br>
+      <br>
+      <ul>
+        <div *ngIf="onlyOdd">
+          <li *ngFor="let odd of odds" [ngClass]="{oddone:odd%2!==0}">{{odd}}</li>
+        </div>
+        <div *ngIf="!onlyOdd">
+          <li *ngFor="let even of evens" [ngStyle]="{color:even%2==0?'blue':'black'}">{{even}}</li>
+        </div>
+      </ul>
+      <p appBasicHighlight>Added by basis highlight</p>
+      <p appBetterHighlight [defaultcolor]="'red'" [highlightcolor]="'yellow'">Added by better highlight</p>
+    </div>
+    <div [ngSwitch]="value">
+      <p *ngSwitchCase='10'>value is 10</p>
+      <p *ngSwitchCase="5">value is 5</p>
+      <p *ngSwitchDefault>value is 15</p>
+    </div>
+  </div>
+</div>
