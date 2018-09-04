@@ -1,0 +1,16 @@
+<div>
+  <div>
+    <p>Add new server</p>
+    <label>Server name</label>
+    <input type="text" #servers>
+    <br>
+    <br>
+    <label> Server Content</label>
+   <!-- <input type="text" [(ngModel)]="newServerContent">-->
+   <input type="text" #users>
+    <br>
+    <br>
+    <button (click)="onAddServer(servers)">Add Server</button>
+    <button (click)="onAddBlueprint(servers)">Add Server Blue Print</button>
+  </div>
+</div>
