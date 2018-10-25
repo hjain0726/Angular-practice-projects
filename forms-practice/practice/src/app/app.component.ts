@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { NgForm, FormGroup, FormControl } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -14,14 +14,23 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.signupForm = new FormGroup({
-      'username': new FormControl(null),
-      'email': new FormControl(null),
-      'gender': new FormControl('male')
+      'userData': new FormGroup({
+        'username': new FormControl(null, Validators.required),
+        'email': new FormControl(null, [Validators.required, Validators.email]),
+      }),
+      'gender': new FormControl('male'),
+      'hobbies':new FormArray([])
     });
   }
 
+  onSubmit() {
+    console.log(this.signupForm);
+  }
 
-
+  onAddHobby(){
+    const control = new FormControl(null, Validators.required);
+    (<FormArray>this.signupForm.get('hobbies')).push(control);
+  }
   // Template driven approach
 
   /*@ViewChild('f') signupform: NgForm;
