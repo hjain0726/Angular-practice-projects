@@ -19,7 +19,10 @@ export class ServerService {
      /*   .map((response:Response)=>{
             const data = response.json();
             return data;
-        });
+        })
+        .catch((error:Response)=>{
+            return Observable.throw('Something went wrong');
+        })
         */
     }
 }
